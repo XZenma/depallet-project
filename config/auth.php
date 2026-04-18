@@ -42,9 +42,9 @@ return [
             'driver'   => 'session',
             'provider' => 'admin_accounts',
         ],
-        'stall' => [
+        'stall_owner' => [
             'driver'   => 'session',
-            'provider' => 'stalls',
+            'provider' => 'stall_accounts',
         ],
     ],
 
@@ -66,15 +66,14 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'admin_accounts' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', User::class),
+            'model' => App\Models\AdminAccount::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'stall_accounts' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\StallAccount::class,
+        ],
     ],
 
     /*
