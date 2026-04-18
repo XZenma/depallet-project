@@ -16,8 +16,10 @@ return new class extends Migration
             $table->foreignId('order_id')->constrained('orders', 'order_id');
             $table->foreignId('menu_id')->constrained('menus', 'menu_id');
             $table->integer('quantity');
-            $table->decimal('price_at_transaction', 10, 2);
+            $table->decimal('price_each_at_transaction', 10, 2);
+            $table->decimal('total_price', 10, 2);
             $table->text('notes')->nullable();
+            $table->enum('status', ['preparing', 'served'])->default('preparing');
             $table->timestamp('created_at')->useCurrent();
         });
     }
