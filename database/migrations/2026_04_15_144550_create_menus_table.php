@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignUuid('stall_id')->constrained('stalls', 'stall_id');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image_path')->nullable();
             $table->decimal('price', 10, 2);
             $table->boolean('is_available')->default(true);
             $table->timestamps();
