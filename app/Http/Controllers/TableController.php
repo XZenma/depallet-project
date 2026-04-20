@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Table;
 use Illuminate\Http\Request;
 
 class TableController extends Controller
@@ -19,7 +20,7 @@ class TableController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -27,7 +28,16 @@ class TableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request-> validate([
+            'table_number' => 'required|string|unique:tables,table_number',
+        ]);
+
+        Table::create([
+            'table_number' => $request->table_number,
+            'is_available' => true,
+        ]);
+
+        // return
     }
 
     /**
